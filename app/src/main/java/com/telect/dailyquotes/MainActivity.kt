@@ -1,7 +1,6 @@
 package com.telect.dailyquotes
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,6 +15,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -39,6 +39,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,13 +107,15 @@ fun MyBottomNavigationBar(navController: NavHostController) {
 @Preview
 fun MainScreen() {
     val navController = rememberNavController()
+    val viewModel: MainViewModel = hiltViewModel()
 
     DailyQuotesTheme {
         Scaffold(
             topBar = { MyTopAppBar() },
+            snackbarHost = { SnackbarHost(viewModel.snackBarHostState) },
             bottomBar = { MyBottomNavigationBar(navController) }) { paddingValues ->
             Box(modifier = Modifier.padding(paddingValues)) {
-                MyBottomNavGraph(navController)
+                MyBottomNavGraph(navController, viewModel)
             }
         }
 

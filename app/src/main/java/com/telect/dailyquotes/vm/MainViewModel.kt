@@ -1,6 +1,7 @@
 package com.telect.dailyquotes.vm
 
 import android.util.Log
+import androidx.compose.material3.SnackbarHostState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.telect.dailyquotes.model.Quote
@@ -13,6 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(val dataRepository: DataRepository) : ViewModel() {
 
+    val snackBarHostState = SnackbarHostState()
     private val _data = MutableStateFlow<List<Quote>>(emptyList())
     val data = _data
     private val _loading = MutableStateFlow(true)
