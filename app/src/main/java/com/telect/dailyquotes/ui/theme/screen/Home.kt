@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.Text
@@ -57,9 +57,9 @@ fun HomeScreen(viewModel: MainViewModel) {
                         ) {
                             Text(Utils.convertHtmlToString(quote.html))
                             if (it != data.size - 1) {
-                                Divider(
+                                HorizontalDivider(
                                     modifier = Modifier.padding(vertical = 8.dp),
-                                    color = MaterialTheme.colorScheme.onSurface
+                                    thickness = 1.dp, color = MaterialTheme.colorScheme.onSurface
                                 )
                             }
 
