@@ -1,17 +1,13 @@
 package com.telect.dailyquotes
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
@@ -57,13 +53,8 @@ fun MyTopAppBar() {
     val context = LocalContext.current
 
     TopAppBar(
-        title = { Text("DailyQuotes", fontSize = 20.sp) }, navigationIcon = {
-            IconButton(onClick = {
-                Toast.makeText(context, "Menu Clicked", Toast.LENGTH_SHORT).show()
-            }) {
-                Icon(Icons.Default.Menu, contentDescription = "Menu")
-            }
-        }, colors = TopAppBarDefaults.topAppBarColors(
+        title = { Text("DailyQuotes", fontSize = 20.sp) },
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color(0xFF6200EE),
             titleContentColor = Color.White,
             navigationIconContentColor = Color.White
